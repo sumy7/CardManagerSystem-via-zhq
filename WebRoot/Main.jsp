@@ -53,10 +53,12 @@
   
   
   <br>
-<table >
+  <div>
+<table style="margin:0 auto;text-align: left">
    <tr><th>&nbsp;</th><th>联系人ID</th><th>姓名</th><th>职位</th><th>电话</th><th>Email</th><th>地址</th><th>修改</th><th>删除至回收站</th><th>永久删除</th></tr>
-   <c:forEach items="${cardlist}" var="card" >
+   <c:forEach items="${cardlist}" var="card" varStatus="cardstatus" >
       <tr>
+        <td>${cardstatus.count }</td>
         <td>${card.uid}</td>
         <td>${card.uname}</td>
         <td>${card.uposition}</td>
@@ -69,6 +71,7 @@
       </tr>
    </c:forEach>
 </table>
+</div>
 <br>
 
 </c:if>
