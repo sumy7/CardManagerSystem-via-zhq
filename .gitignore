@@ -2,6 +2,7 @@
 ## Eclipse
 #################
 
+WebRoot/WEB-INF/classes
 *.pydevproject
 .project
 .metadata
