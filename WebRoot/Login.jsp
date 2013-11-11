@@ -5,7 +5,8 @@
   </head>
   
   <body>
-    <s:form action="LogAction">
+    ${message}
+    <s:form action="LogAction" method="post">
     <s:textfield name="log.logid" label="用户名"></s:textfield>
     <s:textfield name="log.logpwd" label="密码"></s:textfield>
     <s:reset value="重置"></s:reset>
