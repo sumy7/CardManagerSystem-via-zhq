@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="LogAction" class="action.LogAction">
+			<result name="success">/Main.jsp</result>
+			<result name="register">/Register.jsp</result>
+			<result name="error">/Login.jsp</result>
+		</action>
+		<action name="RegisterAction" class="action.RegisterAction">
+			<result name="register-success">/Main.jsp</result>
+			<result name="register-error">/Register.jsp</result>
+		</action>
+		<action name="AddCardAction" class="action.AddCardAction">
+			<result name="addsuccess">/Main.jsp</result>
+			<result name="addfail">/AddError.jsp</result>
+		</action>
+		<action name="UpdateCardAction"
+			class="action.UpdateCardAction">
+			<result name="updatesuccess">/Main.jsp</result>
+		</action>
+		<action name="DeleteCardAction"
+			class="action.DeleteCardAction">
+			<result name="deletesuccess">/Main.jsp</result>
+		</action>
+		<action name="TDeleteCardAction"
+			class="action.TDeleteCardAction">
+			<result name="tdeletesuccess">/Main.jsp</result>
+		</action>
+
+		<action name="FindCardAction" class="action.FindCardAction">
+			<result name="findcard">/FindCard.jsp</result>
+		</action>
+		
+		<action name="FindAllAction" class="action.FindAllActin">
+			<result name="findallcard">/Main.jsp</result>
+			<result name="notfindallcard">/FindError.jsp</result>
+		</action>
+	</package>
+
+</struts>
