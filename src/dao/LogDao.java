@@ -36,8 +36,8 @@ public class LogDao {
 			rs=ps.executeQuery();
 			if(rs.next()){
 				log=new Log();
-				log.setLogid(rs.getString(1));
-				log.setLogpwd(rs.getString(2));
+				log.setLogid(rs.getString("logid"));
+				log.setLogpwd(rs.getString("logpwd"));
 			}
 		}finally{
 			JdbcUtils.free2(rs, ps, conn);
@@ -50,12 +50,12 @@ public class LogDao {
 		ResultSet rs=null;
 		try{
 			conn=JdbcUtils.getConnection();
-			String sql="slect * from logg where logid=?";
+			String sql="select * from logg where logid=?";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, logid);
 			rs=ps.executeQuery();
 			if(rs.next()){
-				if(logid.equals(rs.getString(1)) && logpwd.equals(rs.getString(2))){
+				if(logid.equals(rs.getString("logid")) && logpwd.equals(rs.getString("logpwd"))){
 					return true;
 				}
 				
