@@ -1,6 +1,5 @@
 package action;
 
-
 import java.util.ArrayList;
 
 import bean.Card;
@@ -10,35 +9,62 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.CardDao;
 
 public class FindAllActin extends ActionSupport {
-	private Card card;
-	private CardDao carddao;
-	
-	public Card getCard() {
-		return card;
+
+	private CardDao carddao = new CardDao();
+	ArrayList<Card> cardlist;
+	private Integer pageCount;
+	private Integer pageNo;
+	private Integer totalCard;
+	private Integer countperPage;
+
+	public ArrayList<Card> getCardlist() {
+		return cardlist;
 	}
-	public void setCard(Card card) {
-		this.card = card;
+
+	public void setCardlist(ArrayList<Card> cardlist) {
+		this.cardlist = cardlist;
 	}
-	public CardDao getCarddao() {
-		return carddao;
+
+	public Integer getPageCount() {
+		return pageCount;
 	}
-	public void setCarddao(CardDao carddao) {
-		this.carddao = carddao;
+
+	public void setPageCount(Integer pageCount) {
+		this.pageCount = pageCount;
 	}
-	ArrayList<Card> cardList=carddao.findAllCard(1, 10);
-	public ArrayList<Card> getCardList() {
-		return cardList;
+
+	public Integer getPageNo() {
+		return pageNo;
 	}
-	public void setCardList(ArrayList<Card> cardList) {
-		this.cardList = cardList;
+
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
 	}
-	public String execute()throws Exception{
-		if(carddao.isEmpty()!=0){
-			cardList=carddao.findAllCard(1, 10);
+
+	public Integer getCountperPage() {
+		return countperPage;
+	}
+
+	public void setCountperPage(Integer countperPage) {
+		this.countperPage = countperPage;
+	}
+
+	public String execute() throws Exception {
+		totalCard = carddao.isEmpty();
+		if (countperPage == null || countperPage < 10)
+			countperPage = 10;
+		pageCount = totalCard / countperPage + 1;
+		if (pageNo == null)
+			pageNo = 1;
+		if (pageNo > pageCount)
+			pageNo = pageCount;
+		System.out.println("totalcard:" + totalCard + "countperPage"
+				+ countperPage + "pageCount" + pageCount + "pageNo" + pageNo);
+		if (totalCard != 0) {
+			cardlist = carddao.findAllCard(pageNo, countperPage);
 			return "findallcard";
-		}
-		else{
-			return"notfindallcard";
+		} else {
+			return "notfindallcard";
 		}
 	}
 
