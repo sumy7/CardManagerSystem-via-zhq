@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'FindCard.jsp' starting page</title>
+    <title>查询结果</title>
     
   </head>
   
