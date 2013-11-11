@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class JdbcUtils {
 	public static String url="jdbc:mysql://localhost:3306/card?useUnicode=true&characterEncoding=utf-8";
 	public static String user="root";
-	public static String password="sa";
+	public static String password="root";
 	private JdbcUtils(){
 		
 	}
