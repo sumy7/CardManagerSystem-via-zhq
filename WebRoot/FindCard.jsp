@@ -15,10 +15,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <s:form action="FindCardAction" method="post">
-    	<s:textfield name="searchword" type="text"></s:textfield>
-    	<s:submit>查询</s:submit>
-    </s:form>
+  <s:form action="FindCardAction" name="fi" method="get" >
+  
+  <select name="searchkey">
+  <option selected value="uname">姓名</option>
+  <option value="uposition">职位</option>
+  <option value="utel">电话</option>
+  <option value="uemail">email</option>
+  <option value="uaddress">住址</option>
+  </select>
+  <input type="text" name="keyword">
+  <input type="submit" value="查询"></s:form>
+  <br>
     <table>
                 <tr>
                         <td>#</td>
@@ -40,5 +48,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </tr>
                 </s:iterator>
     </table>
+    <a href="FindAllAction">返回列表</a>
   </body>
 </html>

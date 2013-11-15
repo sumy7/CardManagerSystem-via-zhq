@@ -6,7 +6,7 @@
   <script>
   function deleteconfirm(userid){
   if (confirm("确实要删除该记录吗？")){
-    location.href="DeleteCardAction?uid="+uid;
+    location.href="DeleteCardAction?uid="+userid;
   }
   }
   
@@ -44,10 +44,16 @@
     <a href="FindAllAction?pageNo=${pageNo+1}">下一页</a>
     <a href="FindAllAction?pageNo=${pageCount}">最后一页</a>
   </c:if>
-  <s:form action="FindCardAction" name="fi" method="post" >
+  <s:form action="FindCardAction" name="fi" method="get" >
   
-  <select name="select1"><option selected value="id">联系人ID</option><option value="name">姓名</option></select>
-  <input type="text" name="in">
+  <select name="searchkey">
+  <option selected value="uname">姓名</option>
+  <option value="uposition">职位</option>
+  <option value="utel">电话</option>
+  <option value="uemail">email</option>
+  <option value="uaddress">住址</option>
+  </select>
+  <input type="text" name="keyword">
   <input type="submit" value="查询"></s:form>
   
   

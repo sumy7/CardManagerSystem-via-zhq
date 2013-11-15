@@ -7,7 +7,7 @@
 
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="LogAction" class="action.LogAction">
-			<result name="success">/Main.jsp</result>
+			<result name="success" type="redirect">FindAllAction</result>
 			<result name="register">/Register.jsp</result>
 			<result name="error">/Login.jsp</result>
 		</action>
@@ -16,7 +16,7 @@
 			<result name="register-error">/Register.jsp</result>
 		</action>
 		<action name="AddCardAction" class="action.AddCardAction">
-			<result name="addsuccess">/Main.jsp</result>
+			<result name="addsuccess" type="redirect">FindAllAction</result>
 			<result name="addfail">/AddError.jsp</result>
 		</action>
 		<action name="UpdateCardAction"
@@ -25,11 +25,11 @@
 		</action>
 		<action name="DeleteCardAction"
 			class="action.DeleteCardAction">
-			<result name="deletesuccess">/Main.jsp</result>
+			<result name="deletesuccess" type="redirect">FindAllAction</result>
 		</action>
 		<action name="TDeleteCardAction"
 			class="action.TDeleteCardAction">
-			<result name="tdeletesuccess">/Main.jsp</result>
+			<result name="tdeletesuccess" type="redirect">FindAllAction</result>
 		</action>
 
 		<action name="FindCardAction" class="action.FindCardAction">
