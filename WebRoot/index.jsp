@@ -5,6 +5,6 @@
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <a href="Login.jsp">登录</a><br>
   </body>
 </html>
